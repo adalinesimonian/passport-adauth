@@ -1,8 +1,9 @@
 {
-  "name": "passport-ldapauth",
-  "description": "LDAP authentication strategy for Passport",
-  "author": "Vesa Poikajärvi <vesa.poikajarvi@iki.fi>",
+  "name": "passport-adauth",
+  "description": "Active Directory authentication strategy for Passport",
+  "author": "Vartan Simonian <vsimonianpress@gmail.com> (https://github.com/vsimonian)",
   "contributors": [
+    "Vesa Poikajärvi <vesa.poikajarvi@iki.fi>",
     "Simon Gaeremynck <gaeremyncks@gmail.com>",
     "Michael Bailly <mbailly@linagora.com>",
     "Jason Gelinas <jason.gelinas@citi.com>",
@@ -10,38 +11,38 @@
   ],
   "keywords": [
     "ldap",
+    "ad",
+    "active-directory",
     "passport",
     "authentication",
-    "ldapauth"
+    "ldapauth",
+    "adauth"
   ],
-  "version": "0.3.0",
-  "license": {
-    "type": "MIT",
-    "url": "https://github.com/vesse/passport-ldapauth/raw/master/LICENSE"
-  },
-  "main": "./lib/passport-ldapauth",
+  "version": "0.1.0",
+  "license": "MIT",
+  "main": "./lib/passport-adauth",
   "engines": {
     "node": ">=0.8.0"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/vesse/passport-ldapauth.git"
+    "url": "https://github.com/vsimonian/passport-adauth.git"
   },
   "bugs": {
-    "url": "https://github.com/vesse/passport-ldapauth/issues"
+    "url": "https://github.com/vsimonian/passport-adauth/issues"
   },
   "dependencies": {
-    "passport-strategy": "1.x.x",
-    "ldapauth-fork": "~2.3.0"
+    "passport-strategy": "^1.0.0",
+    "adauth": "^0.1.1"
   },
   "devDependencies": {
-    "body-parser": "1.12.x",
-    "chai": "2.1.x",
-    "express": "4.9.x",
-    "ldapjs": "0.7.x",
-    "mocha": "2.1.x",
-    "supertest": "0.15.x",
-    "passport": "~0.2.0"
+    "body-parser": "^1.13.1",
+    "chai": "^3.0.0",
+    "express": "^4.13.0",
+    "ldapjs": "mcavage/node-ldapjs",
+    "mocha": "^2.2.5",
+    "supertest": "^1.0.1",
+    "passport": "^0.2.2"
   },
   "scripts": {
     "test": "NODE_PATH=lib mocha --reporter spec test/*-test.js"

@@ -1,21 +1,21 @@
 var express      = require('express'),
     passport     = require('passport'),
-    LdapStrategy = require('passport-ldapauth').Strategy,
+    ADStrategy   = require('passport-adauth').Strategy,
     bodyParser   = require('body-parser');
 
 var server = null;
 
-var init_passport = function(opts, testopts) {
+var init_passport = function (opts, testopts) {
   if (testopts.no_callback === true) {
-    passport.use(new LdapStrategy(opts));
+    passport.use(new ADStrategy(opts));
   } else {
-    passport.use(new LdapStrategy(opts, function(user, cb) {
+    passport.use(new ADStrategy(opts, function(user, cb) {
       return cb(null, user);
     }));
   }
 };
 
-exports.start = function(opts, testopts, cb) {
+exports.start = function (opts, testopts, cb) {
 
   var app = express();
 
@@ -24,7 +24,8 @@ exports.start = function(opts, testopts, cb) {
   app.use(bodyParser.json());
   app.use(passport.initialize());
 
-  app.post('/login', passport.authenticate('ldapauth', {session: false}), function(req, res) {
+  app.post('/login', passport.authenticate('adauth',
+    {session: false}), function (req, res) {
     res.send({status: 'ok'});
   });
 
@@ -32,7 +33,7 @@ exports.start = function(opts, testopts, cb) {
   return;
 };
 
-exports.close = function(cb) {
+exports.close = function (cb) {
   if (server) server.close();
   server = null;
   if (typeof cb === 'function') return cb();
