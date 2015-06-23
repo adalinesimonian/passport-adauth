@@ -22,7 +22,6 @@ MIT. See "LICENSE" file.
 ## Usage
 
 ```javascript
-var fs = require('fs');
 var ADStrategy = require('passport-adauth');
 
 passport.use(new ADStrategy({
@@ -30,9 +29,7 @@ passport.use(new ADStrategy({
     url: 'ldaps://corp.example.com',
     domainDn: 'dc=example,dc=com',
     tlsOptions: {
-      ca: [
-        fs.readFileSync('./domain-ca.cer')
-      ]
+      ca: './domain-ca.cer'
     }
   }
 }));
@@ -131,8 +128,6 @@ Simple example config for connecting over `ldaps://` to a server requiring some
 internal CA certificate (often the case in corporations using Windows AD).
 
 ```javascript
-var fs = require('fs');
-
 var opts = {
   server: {
     url: 'ldaps://corp.example.com:636',
@@ -140,9 +135,7 @@ var opts = {
     bindCredentials: 'mypassword',
     searchBase: 'OU=Users,OU=MyBusiness,DC=example,DC=com'
     tlsOptions: {
-      ca: [
-        fs.readFileSync('./domain-ca.cer')
-      ]
+      ca: './domain-ca.cer'
     }
   }
 };

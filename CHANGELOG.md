@@ -1,5 +1,10 @@
 # Change log
 
+## 0.1.2
+### Changed
+- Recommended passing CA certificate URL directly to node-adauth instead of
+  using `fs.readFileSync(...)`
+
 ## 0.1.1
 ### Fixed
 - Test in which a typo prevented it from passing
