@@ -33,7 +33,7 @@
   },
   "dependencies": {
     "passport-strategy": "^1.0.0",
-    "adauth": "^0.1.1"
+    "adauth": "^0.1.2"
   },
   "devDependencies": {
     "body-parser": "^1.13.1",
