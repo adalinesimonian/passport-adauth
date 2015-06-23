@@ -329,7 +329,7 @@ describe("AD authentication strategy", function () {
         .send({
           first_uname: 'valid@example.com',
           first_pwd: 'validpassword',
-          set: 'first'
+          set: 'second'
         })
         .expect(400)
         .end(cb);
